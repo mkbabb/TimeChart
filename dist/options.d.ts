@@ -62,6 +62,7 @@ interface TimeChartRenderOptions {
      **/
     baseTime: number;
     xScaleType: () => ScaleBase;
+    forceWebGL1: boolean;
     debugWebGL: boolean;
 }
 export type TimeChartPlugins = Readonly<Record<string, TimeChartPlugin>>;

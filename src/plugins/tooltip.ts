@@ -1,6 +1,6 @@
 import { TimeChartSeriesOptions, TooltipOptions } from "../options";
 import { TimeChartPlugin } from ".";
-import core from "../core";
+import {TimeChart} from "../core";
 
 type ItemElements = { item: HTMLElement; example: HTMLElement; name: HTMLElement, value: HTMLElement }
 
@@ -13,7 +13,7 @@ export class Tooltip {
 
     chartOptions;
 
-    constructor(chart: core, public readonly options: TooltipOptions) {
+    constructor(chart: TimeChart, public readonly options: TooltipOptions) {
         this.chartOptions = chart.options;
 
         const mouseOffset = 12;
@@ -186,7 +186,7 @@ export class TimeChartTooltipPlugin implements TimeChartPlugin<Tooltip> {
         this.options = options as TooltipOptions;
     }
 
-    apply(chart: core) {
+    apply(chart: TimeChart) {
         return new Tooltip(chart, this.options);
     }
 }

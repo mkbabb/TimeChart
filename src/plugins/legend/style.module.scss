@@ -1,0 +1,29 @@
+.legend {
+    background: var(--background-overlay, white);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    position: absolute;
+
+    max-height: 25%;
+    overflow-y: scroll;
+
+    .preview {
+        width: 4rem;
+        max-height: 1rem;
+        border-radius: 3px;
+    }
+
+    &__item {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:not(.visible) {
+            color: gray;
+            text-decoration: line-through;
+        }
+    }
+}

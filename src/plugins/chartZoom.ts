@@ -1,13 +1,13 @@
 import { ChartZoom, defaultAxisOptions, resolveOptions,  } from "../chartZoom";
 import { ResolvedOptions as ResolvedChartZoomOptions } from "../chartZoom/options";
-import core from "../core";
+import {TimeChart} from "../core";
 import { MinMax } from "../core/renderModel";
 import { ResolvedZoomOptions, TimeChartPlugins, ZoomOptions } from "../options";
 import { TimeChartPlugin } from ".";
 import { ScaleLinear } from "d3-scale";
 
 export class TimeChartZoom {
-    constructor(chart: core<TimeChartPlugins>, public options: ResolvedZoomOptions) {
+    constructor(chart: TimeChart<TimeChartPlugins>, public options: ResolvedZoomOptions) {
         this.registerZoom(chart)
     }
 
@@ -28,7 +28,7 @@ export class TimeChartZoom {
         o.maxDomain = max;
     }
 
-    private registerZoom(chart: core<TimeChartPlugins>) {
+    private registerZoom(chart: TimeChart<TimeChartPlugins>) {
         if (this.options.x)
             Object.setPrototypeOf(this.options.x, Object.assign(Object.create(defaults), { scale: chart.model.xScale }));
         if (this.options.y)
@@ -60,7 +60,7 @@ export class TimeChartZoomPlugin implements TimeChartPlugin<TimeChartZoom> {
         this.options = resolveOptions(defaults, o);
     }
 
-    apply(chart: core<TimeChartPlugins>) {
+    apply(chart: TimeChart<TimeChartPlugins>) {
         return new TimeChartZoom(chart, this.options);
     }
 }

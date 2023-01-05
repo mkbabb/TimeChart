@@ -1,6 +1,6 @@
 import { TimeChartSeriesOptions, TooltipOptions } from "../options";
 import { TimeChartPlugin } from ".";
-import core from "../core";
+import { TimeChart } from "../core";
 type ItemElements = {
     item: HTMLElement;
     example: HTMLElement;
@@ -14,13 +14,13 @@ export declare class Tooltip {
     items: Map<TimeChartSeriesOptions, ItemElements>;
     itemContainer: HTMLElement;
     chartOptions: import("../options").ResolvedCoreOptions;
-    constructor(chart: core, options: TooltipOptions);
+    constructor(chart: TimeChart, options: TooltipOptions);
     private createItemElements;
     update(): void;
 }
 export declare class TimeChartTooltipPlugin implements TimeChartPlugin<Tooltip> {
     options: TooltipOptions;
     constructor(options?: Partial<TooltipOptions>);
-    apply(chart: core): Tooltip;
+    apply(chart: TimeChart): Tooltip;
 }
 export {};

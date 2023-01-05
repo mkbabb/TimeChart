@@ -67,7 +67,8 @@ interface TimeChartRenderOptions {
      **/
     baseTime: number;
     xScaleType: () => ScaleBase;
-
+    
+    forceWebGL1: boolean;
     debugWebGL: boolean;
 }
 

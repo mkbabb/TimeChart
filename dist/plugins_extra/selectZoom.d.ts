@@ -1,4 +1,4 @@
-import core from "../core";
+import { TimeChart } from "../core";
 import { TimeChartPlugin } from "../plugins";
 export interface SelectZoomOptions {
     mouseButtons: number;
@@ -10,7 +10,7 @@ export declare class SelectZoom {
     private readonly chart;
     readonly options: SelectZoomOptions;
     private visual;
-    constructor(chart: core, options: SelectZoomOptions);
+    constructor(chart: TimeChart, options: SelectZoomOptions);
     onKeyDown(ev: KeyboardEvent): void;
     private start;
     private reset;
@@ -23,5 +23,5 @@ export declare class SelectZoom {
 export declare class SelectZoomPlugin implements TimeChartPlugin<SelectZoom> {
     readonly options: SelectZoomOptions;
     constructor(options?: Partial<SelectZoomOptions>);
-    apply(chart: core): SelectZoom;
+    apply(chart: TimeChart): SelectZoom;
 }

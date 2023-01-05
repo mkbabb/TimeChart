@@ -1,4 +1,4 @@
-import core from "../core";
+import { TimeChart } from "../core";
 import { TimeChartPlugin } from "../plugins";
 
 export interface SelectZoomOptions {
@@ -19,7 +19,7 @@ interface Point { x : number; y : number; };
 
 export class SelectZoom {
     private visual: SVGRectElement;
-    constructor(private readonly chart: core, public readonly options: SelectZoomOptions) {
+    constructor(private readonly chart: TimeChart, public readonly options: SelectZoomOptions) {
         const el = chart.contentBoxDetector.node;
         el.tabIndex = -1;
         el.addEventListener('pointerdown', ev => this.onMouseDown(ev), { signal: chart.model.abortController.signal });
@@ -170,7 +170,7 @@ export class SelectZoomPlugin implements TimeChartPlugin<SelectZoom> {
             Object.setPrototypeOf(options, defaultOptions);
         this.options = options as SelectZoomOptions;
     }
-    apply(chart: core) {
+    apply(chart: TimeChart) {
         return new SelectZoom(chart, this.options);
     }
 }

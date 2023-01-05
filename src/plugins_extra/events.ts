@@ -1,4 +1,4 @@
-import core from '../core';
+import {TimeChart} from '../core';
 import { TimeChartPlugin } from '../plugins';
 import { select } from 'd3-selection';
 
@@ -13,7 +13,7 @@ export class EventsPlugin implements TimeChartPlugin<EventsPlugin> {
         this.data = data ?? [];
     }
 
-    apply(chart: core) {
+    apply(chart: TimeChart) {
         const d3Svg = select(chart.svgLayer.svgNode)
         const box = d3Svg.append('svg');
         box.append('style').text(`
