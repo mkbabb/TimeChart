@@ -11,7 +11,7 @@ export const crosshair: TimeChartPlugin<void> = {
         style.textContent = `
 .timechart-crosshair {
     stroke: currentColor;
-    stroke-width: 1;
+    stroke-width: 2;
     stroke-dasharray: 2 1;
     visibility: hidden;
 }`;
